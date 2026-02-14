@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Deconstructed Daily Guidance Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f4af25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221c10",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'drift': 'drift 20s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: 1, filter: 'brightness(1)' },
+                            '50%': { opacity: .7, filter: 'brightness(1.3)' },
+                        },
+                        drift: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50px)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Utilities for Glassmorphism & Effects */
+        .glass-panel {
+            background: rgba(34, 28, 16, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(244, 175, 37, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .text-glow {
+            text-shadow: 0 0 20px rgba(244, 175, 37, 0.5);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fff8e7 0%, #f4af25 50%, #b47d12 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Starry Background Effect */
+        .stars-bg {
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 160px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, #ffffff, rgba(0,0,0,0));
+            background-size: 200px 200px;
+            animation: drift 60s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-hidden h-screen w-screen relative">
+<!-- Background Layer -->
+<div class="absolute inset-0 z-0">
+<!-- Deep space base -->
+<div class="absolute inset-0 bg-[#0f0c07]"></div>
+<!-- Cosmic Sunrise Gradient -->
+<div class="absolute bottom-0 left-0 right-0 h-[70vh] bg-gradient-to-t from-[#4a2c08] via-[#2a1d0f] to-transparent opacity-80"></div>
+<!-- Stars overlay -->
+<div class="absolute inset-0 stars-bg opacity-40"></div>
+<!-- Abstract Cosmic Texture Image (Described) -->
+<div class="absolute top-0 right-0 w-full h-full opacity-20 bg-cover bg-center mix-blend-overlay pointer-events-none" data-alt="Deep space nebula with swirling stars and cosmic dust" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCqZEA2X1_zs8BN-_tRTpX4K4PBlETeT7K8wHb_2NdVhdwxE6cffzothza9LCv0ex0A0pNi375rG8Yvk75u0Zt2P1DPEmfg4niiww78Zq5Iejcovyi3suCLuUmbkN0EVnfkwxeGM16uFAiLHRjuDK1isoTEyu-EgzE0PXX14aMXWv6Y6ZnZZ1s9eTmxLf3-x4Ig0RDa_CRMXocM_G4KBLKtY381293uk4Q3x3RObRkjh2r0AoaDaxj8rOK0yp90rr5vWtvq7XmUGlE');"></div>
+<!-- Warm glow orb in bottom left -->
+<div class="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-primary rounded-full blur-[120px] opacity-10"></div>
+</div>
+<!-- Main Container -->
+<div class="relative z-10 w-full h-full p-8 md:p-12 flex flex-col justify-between">
+<!-- Top Left: Floating Date Widget -->
+<div class="flex items-start">
+<div class="glass-panel px-6 py-3 rounded-full flex items-center gap-3 animate-float hover:border-primary/30 transition-colors cursor-default">
+<span class="material-icons text-primary animate-pulse-glow">wb_sunny</span>
+<div class="flex flex-col">
+<span class="text-xs uppercase tracking-widest text-white/60 font-semibold">Today</span>
+<span class="text-lg leading-none font-medium">October 24, 2023</span>
+</div>
+</div>
+</div>
+<!-- Center Section: Deconstructed Layout -->
+<div class="flex-1 flex flex-col lg:flex-row items-center justify-center w-full gap-12 lg:gap-24 my-8">
+<!-- Left: Numerology Visualization -->
+<div class="relative w-full lg:w-1/2 h-[400px] flex items-center justify-center select-none perspective-1000">
+<!-- Connecting Energy Threads (SVG) -->
+<svg class="absolute inset-0 w-full h-full z-10 pointer-events-none overflow-visible" viewbox="0 0 400 400">
+<defs>
+<lineargradient id="threadGradient" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" style="stop-color:#f4af25;stop-opacity:0"></stop>
+<stop offset="50%" style="stop-color:#f4af25;stop-opacity:0.8"></stop>
+<stop offset="100%" style="stop-color:#f4af25;stop-opacity:0"></stop>
+</lineargradient>
+<filter id="glow">
+<fegaussianblur result="coloredBlur" stddeviation="2.5"></fegaussianblur>
+<femerge>
+<femergenode in="coloredBlur"></femergenode>
+<femergenode in="SourceGraphic"></femergenode>
+</femerge>
+</filter>
+</defs>
+<!-- Abstract connecting lines -->
+<path class="opacity-60 animate-pulse-glow" d="M100,200 Q200,100 300,200" fill="none" filter="url(#glow)" stroke="url(#threadGradient)" stroke-width="1">
+<animate attributename="d" dur="10s" repeatcount="indefinite" values="M100,200 Q200,100 300,200;M100,200 Q200,300 300,200;M100,200 Q200,100 300,200"></animate>
+</path>
+<path class="opacity-40" d="M120,220 Q200,150 280,220" fill="none" filter="url(#glow)" stroke="url(#threadGradient)" stroke-width="0.5">
+<animate attributename="d" dur="7s" repeatcount="indefinite" values="M120,220 Q200,150 280,220;M120,220 Q200,250 280,220;M120,220 Q200,150 280,220"></animate>
+</path>
+<!-- Floating particles -->
+<circle class="animate-ping opacity-75" cx="200" cy="200" fill="#f4af25" r="2"></circle>
+<circle class="animate-pulse opacity-50" cx="150" cy="180" fill="#f4af25" r="1"></circle>
+<circle class="animate-pulse opacity-60" cx="250" cy="220" fill="#f4af25" r="1.5"></circle>
+</svg>
+<!-- Principal Number (Ghost) -->
+<div class="absolute right-[20%] lg:right-[30%] opacity-20 scale-75 blur-[2px] transform rotate-12 z-0">
+<span class="text-[180px] lg:text-[250px] font-bold text-white/10 leading-none">3</span>
+<div class="text-center text-sm tracking-[0.3em] uppercase mt-[-40px]">Principal</div>
+</div>
+<!-- Daily Number (Main) -->
+<div class="relative z-20 transform transition-transform hover:scale-105 duration-700 ease-out">
+<span class="text-[200px] lg:text-[320px] font-bold gold-gradient-text text-glow leading-none drop-shadow-2xl font-display">5</span>
+<div class="absolute -bottom-4 w-full text-center">
+<span class="px-4 py-1 rounded-full border border-primary/40 bg-black/40 backdrop-blur-md text-primary text-sm uppercase tracking-widest shadow-[0_0_15px_rgba(244,175,37,0.3)]">Daily Number</span>
+</div>
+</div>
+</div>
+<!-- Right: Cosmic Forecast Panel -->
+<div class="w-full lg:w-5/12 max-w-xl">
+<div class="glass-panel p-8 lg:p-10 rounded-2xl relative overflow-hidden group">
+<!-- Subtle shimmer effect on hover -->
+<div class="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12 group-hover:animate-[shimmer_2s_infinite]"></div>
+<div class="flex justify-between items-start mb-6">
+<div>
+<h2 class="text-3xl lg:text-4xl font-light text-white mb-1">Winds of Change</h2>
+<p class="text-primary/80 text-sm uppercase tracking-widest font-semibold">Today's Cosmic Forecast</p>
+</div>
+<button class="p-2 rounded-full hover:bg-white/5 text-white/50 hover:text-white transition-colors">
+<span class="material-icons">more_horiz</span>
+</button>
+</div>
+<div class="space-y-4 text-lg font-light text-white/80 leading-relaxed">
+<p>
+                            Today brings a surge of dynamic energy. The interaction between the universal <span class="text-primary">5</span> and your principal number suggests a day for bold decisions and unexpected pivots.
+                        </p>
+<p>
+                            Embrace the chaos of the new. Structure may feel confining today; allow your intuition to guide you through the scattered stardust of opportunity.
+                        </p>
+</div>
+<div class="mt-8 pt-6 border-t border-white/10 grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<span class="text-xs uppercase text-white/40 tracking-wider">Lucky Color</span>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]"></span>
+<span class="text-emerald-100">Nebula Green</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-xs uppercase text-white/40 tracking-wider">Power Word</span>
+<span class="text-white">Liberation</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-xs uppercase text-white/40 tracking-wider">Resonance</span>
+<div class="w-full bg-white/10 rounded-full h-1 mt-2">
+<div class="bg-primary h-1 rounded-full w-[85%] shadow-[0_0_10px_rgba(244,175,37,0.8)]"></div>
+</div>
+</div>
+<div class="flex flex-col gap-1 justify-end">
+<button class="text-xs uppercase text-primary tracking-wider hover:text-white transition-colors flex items-center gap-1 group/btn">
+                                Read Full Report 
+                                <span class="material-icons text-[14px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom: Timeline Slider -->
+<div class="w-full relative h-24 flex items-end justify-center mb-4">
+<div class="glass-panel w-full lg:w-4/5 h-20 rounded-xl flex items-center px-4 relative">
+<!-- Navigation Arrows -->
+<button class="absolute left-2 z-20 w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 text-white/60 hover:text-white transition-colors">
+<span class="material-icons">chevron_left</span>
+</button>
+<button class="absolute right-2 z-20 w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 text-white/60 hover:text-white transition-colors">
+<span class="material-icons">chevron_right</span>
+</button>
+<!-- Timeline Track -->
+<div class="flex-1 flex justify-between items-center px-8 relative overflow-hidden h-full">
+<!-- Day -2 -->
+<div class="flex flex-col items-center gap-2 text-white/30 cursor-pointer hover:text-white/60 transition-colors group">
+<span class="text-xs uppercase tracking-wider font-sans font-bold">Oct 22</span>
+<div class="h-2 w-2 rounded-full bg-current group-hover:scale-125 transition-transform"></div>
+</div>
+<!-- Day -1 -->
+<div class="flex flex-col items-center gap-2 text-white/30 cursor-pointer hover:text-white/60 transition-colors group">
+<span class="text-xs uppercase tracking-wider font-sans font-bold">Oct 23</span>
+<div class="h-2 w-2 rounded-full bg-current group-hover:scale-125 transition-transform"></div>
+</div>
+<!-- Current Day (Active) -->
+<div class="flex flex-col items-center gap-2 relative z-10 scale-110">
+<span class="text-sm font-bold uppercase tracking-widest text-primary text-glow">Today</span>
+<div class="h-3 w-3 rounded-full bg-primary shadow-[0_0_15px_#f4af25] ring-4 ring-primary/20"></div>
+<!-- Active connector line segment -->
+<div class="absolute top-[28px] w-24 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+</div>
+<!-- Day +1 -->
+<div class="flex flex-col items-center gap-2 text-white/30 cursor-pointer hover:text-white/60 transition-colors group">
+<span class="text-xs uppercase tracking-wider font-sans font-bold">Oct 25</span>
+<div class="h-2 w-2 rounded-full bg-current group-hover:scale-125 transition-transform"></div>
+</div>
+<!-- Day +2 -->
+<div class="flex flex-col items-center gap-2 text-white/30 cursor-pointer hover:text-white/60 transition-colors group">
+<span class="text-xs uppercase tracking-wider font-sans font-bold">Oct 26</span>
+<div class="h-2 w-2 rounded-full bg-current group-hover:scale-125 transition-transform"></div>
+</div>
+<!-- Faint connecting line -->
+<div class="absolute top-[55%] left-0 right-0 h-[1px] bg-white/10 -z-0"></div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

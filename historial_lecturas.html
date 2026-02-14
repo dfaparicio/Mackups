@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Celestial Readings Archive Timeline</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f4af25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221c10",
+                        "nebula-dark": "#130f1c",
+                        "void-dark": "#0a080c",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    backgroundImage: {
+                        'nebula-gradient': 'radial-gradient(circle at 50% 0%, #2e243d 0%, #130f1c 50%, #0a080c 100%)',
+                        'glass-gradient': 'linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)',
+                        'glass-gradient-highlight': 'linear-gradient(145deg, rgba(244, 175, 37, 0.15) 0%, rgba(244, 175, 37, 0.02) 100%)',
+                    },
+                    boxShadow: {
+                        'glow-primary': '0 0 20px rgba(244, 175, 37, 0.3)',
+                        'glow-text': '0 0 10px rgba(244, 175, 37, 0.5)',
+                        'gold-border': 'inset 0 0 0 1px rgba(244, 175, 37, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a080c; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f4af25; 
+        }
+        
+        .holographic-text {
+            background: linear-gradient(135deg, #fff 0%, #f4af25 50%, #fff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+        
+        .floating-orb {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .gold-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .gold-shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(244, 175, 37, 0.4), transparent);
+            transform: skewX(-25deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            100% { left: 200%; }
+        }
+    </style>
+</head>
+<body class="bg-nebula-dark font-display text-white overflow-x-hidden min-h-screen relative">
+<!-- Background Ambience -->
+<div class="fixed inset-0 z-0 pointer-events-none">
+<!-- Deep Space Background Image -->
+<div class="absolute inset-0 bg-nebula-gradient opacity-90"></div>
+<img alt="Cosmic background" class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-screen" data-alt="Deep violet nebula space background with stars" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB40YGRjhmXS-d8P380PJSDdjWdkX4VJKSCELyn-25KVq9xjtDgnQlsmtqbWtGWNj0X-XyHmY5VXbr_Wdzm5VYktJSVluWcB4SNyGGzx3oLLDotPBrocA8cHiGv1297IM32wnSN3IMeozZSd3b1uKSS97zRRT0byN1D1RMeVYm4HqwDl4By7xREmfAPqLjuOgVcjzwjDdFY3QGOQ2lDSrRFFKLz0jbfUyumqiCq0yl8ZnY1qS8FQioSMNrzIq0aty2PvyEQ1Pfba_g"/>
+<!-- Golden Flares -->
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary rounded-full blur-[150px] opacity-10"></div>
+<div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-900 rounded-full blur-[180px] opacity-20"></div>
+</div>
+<!-- Main Navigation (Minimalist) -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-6 bg-gradient-to-b from-void-dark to-transparent">
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-primary text-3xl">all_inclusive</span>
+<span class="text-xl font-light tracking-[0.2em] uppercase">Numera</span>
+</div>
+<div class="flex items-center gap-8">
+<a class="text-sm font-light text-white/70 hover:text-primary transition-colors" href="#">Readings</a>
+<a class="text-sm font-light text-white/70 hover:text-primary transition-colors" href="#">Charts</a>
+<a class="text-sm font-light text-white/70 hover:text-primary transition-colors" href="#">Profile</a>
+<div class="w-10 h-10 rounded-full border border-primary/30 p-1">
+<img alt="Profile" class="w-full h-full rounded-full object-cover opacity-80" data-alt="User profile avatar portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdJktGpEv3G7QrrwIcTt-EsZZ8dib6Pq5WGcJl4jq-Qg11IbAoQCdOtWliL8ovmw04sZE5_DjwrBdgY6CBcIapzMA70szkx3d1kPdipqqwy9q9oFOYYzfVld1EHJMM62aZB9-OnXSjcIAPnzX6iMAm0ThdCoZGFGjrwtJ6gtwn-3PB1Nzs7SwGRrotaOCKjtWaYCPKM4aa4ie8dkOc5GMzGyTSLzTUvmVGKedmrrpeD8EHkcJlmJ94hD53mcJReSgHrWywKSPlXqg"/>
+</div>
+</div>
+</nav>
+<main class="relative z-10 container mx-auto px-4 pt-32 pb-20 max-w-5xl">
+<!-- Hero: Soul Blueprint -->
+<section class="mb-24 relative group perspective-1000">
+<!-- Aura/Glow behind hero -->
+<div class="absolute -inset-1 bg-gradient-to-r from-primary/30 to-purple-600/30 rounded-xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity duration-1000"></div>
+<div class="relative bg-glass-gradient backdrop-blur-xl border border-primary/40 rounded-xl p-8 md:p-12 overflow-hidden shadow-2xl">
+<!-- Decorative luxury borders -->
+<div class="absolute inset-2 border border-primary/20 rounded-lg pointer-events-none"></div>
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+<div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
+<!-- Left: 3D Holographic 7 -->
+<div class="flex justify-center items-center relative h-64">
+<!-- Abstract rotating rings representing 3D holographic projection -->
+<div class="absolute w-48 h-48 border border-primary/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+<div class="absolute w-56 h-56 border border-primary/10 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+<div class="absolute w-40 h-40 border-t border-b border-primary/60 rounded-full animate-[spin_3s_linear_infinite]"></div>
+<!-- The Number 7 -->
+<h1 class="text-[180px] leading-none font-thin text-transparent bg-clip-text bg-gradient-to-b from-white via-primary to-transparent drop-shadow-[0_0_15px_rgba(244,175,37,0.8)] floating-orb font-display select-none">
+                            7
+                        </h1>
+<div class="absolute bottom-4 text-xs tracking-[0.4em] text-primary/80 uppercase">Life Path</div>
+</div>
+<!-- Right: Content -->
+<div class="space-y-6 text-center md:text-left">
+<div>
+<span class="inline-block py-1 px-3 border border-primary/30 rounded-full text-xs font-semibold tracking-widest text-primary mb-4 uppercase bg-primary/5">
+                                Your Core Frequency
+                            </span>
+<h2 class="text-4xl md:text-5xl font-light text-white mb-2">Soul Blueprint</h2>
+<p class="text-xl text-primary/80 font-light italic">" The Seeker of Truth "</p>
+</div>
+<p class="text-white/60 leading-relaxed font-light">
+                            Your blueprint resonates with deep introspection and spiritual discovery. This cycle highlights a profound connection to the metaphysical realm, urging you to look beyond the surface.
+                        </p>
+<div class="pt-4">
+<button class="gold-shimmer group relative px-8 py-4 bg-primary/10 hover:bg-primary/20 border border-primary/50 text-white transition-all duration-300 rounded-lg overflow-hidden shadow-[0_0_15px_rgba(244,175,37,0.15)] hover:shadow-[0_0_25px_rgba(244,175,37,0.4)]">
+<span class="relative z-10 flex items-center gap-3 font-medium tracking-wide">
+                                    VIEW FULL ANALYSIS
+                                    <span class="material-icons-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Timeline Section -->
+<section class="relative pl-8 md:pl-0">
+<!-- Header -->
+<div class="flex items-end justify-between mb-16 border-b border-white/10 pb-4 md:ml-12 lg:ml-[25%] mr-4">
+<div>
+<h3 class="text-2xl font-light text-white tracking-wide">Celestial Timeline</h3>
+<p class="text-sm text-white/40 mt-1">Archive of your daily energetic shifts</p>
+</div>
+<div class="hidden md:flex gap-4">
+<button class="text-primary/60 hover:text-primary transition-colors"><span class="material-icons-outlined">filter_list</span></button>
+<button class="text-primary/60 hover:text-primary transition-colors"><span class="material-icons-outlined">calendar_today</span></button>
+</div>
+</div>
+<!-- The Glowing Thread Container -->
+<div class="relative">
+<!-- The actual thread line -->
+<div class="absolute left-0 md:left-[20%] top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/30 to-transparent shadow-[0_0_10px_rgba(244,175,37,0.5)]"></div>
+<!-- Cards Container -->
+<div class="space-y-12">
+<!-- Card 1: TODAY (Active/Brightest) -->
+<div class="relative grid md:grid-cols-[20%_1fr] gap-8 group">
+<!-- Date Marker on Thread -->
+<div class="hidden md:flex flex-col items-end justify-start pt-6 pr-8 text-right relative">
+<div class="absolute right-[-5px] top-8 w-2.5 h-2.5 bg-primary rounded-full shadow-[0_0_10px_#f4af25] z-20"></div>
+<span class="text-2xl font-light text-primary">Today</span>
+<span class="text-sm text-white/50 tracking-widest uppercase">Oct 24</span>
+</div>
+<!-- Mobile Date Marker (Left aligned) -->
+<div class="md:hidden absolute left-[-34px] top-8 w-3 h-3 bg-primary rounded-full shadow-[0_0_10px_#f4af25] z-20 border-2 border-void-dark"></div>
+<!-- Card Content -->
+<div class="relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01]">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-primary to-purple-500 rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+<div class="relative bg-glass-gradient-highlight backdrop-blur-md border border-primary/30 rounded-lg p-6 shadow-xl">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-primary/10 rounded-full border border-primary/20 text-primary">
+<span class="material-icons-outlined text-xl">auto_fix_high</span>
+</div>
+<div>
+<h4 class="text-xl font-medium text-white group-hover:text-primary transition-colors">Transformation</h4>
+<p class="text-xs text-primary/70 uppercase tracking-wider">Mars entering Scorpio</p>
+</div>
+</div>
+<span class="text-3xl font-thin text-white/20">08</span> <!-- Numerology number of the day -->
+</div>
+<p class="text-white/80 font-light leading-relaxed text-sm md:text-base border-l-2 border-primary/30 pl-4 mb-4">
+                                    Today's energy demands shedding old skins. The alignment suggests a powerful moment for personal reinvention. Embrace the discomfort of growth.
+                                </p>
+<div class="flex gap-2">
+<span class="text-[10px] uppercase tracking-wider py-1 px-2 rounded bg-white/5 text-white/40 border border-white/5">Power</span>
+<span class="text-[10px] uppercase tracking-wider py-1 px-2 rounded bg-white/5 text-white/40 border border-white/5">Rebirth</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: YESTERDAY (Slightly less bright) -->
+<div class="relative grid md:grid-cols-[20%_1fr] gap-8 group opacity-90 hover:opacity-100 transition-opacity">
+<!-- Date Marker -->
+<div class="hidden md:flex flex-col items-end justify-start pt-6 pr-8 text-right relative">
+<div class="absolute right-[-4px] top-8 w-2 h-2 bg-primary/50 rounded-full z-20"></div>
+<span class="text-xl font-light text-white/80">Yesterday</span>
+<span class="text-sm text-white/40 tracking-widest uppercase">Oct 23</span>
+</div>
+<!-- Mobile Date Marker -->
+<div class="md:hidden absolute left-[-33px] top-8 w-2.5 h-2.5 bg-primary/50 rounded-full z-20 border-2 border-void-dark"></div>
+<!-- Card Content -->
+<div class="relative transform transition-all duration-500 hover:-translate-y-1">
+<div class="relative bg-glass-gradient backdrop-blur-sm border border-white/10 rounded-lg p-6 shadow-lg group-hover:border-primary/30 group-hover:bg-white/5 transition-all">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-white/5 rounded-full border border-white/10 text-white/70 group-hover:text-primary group-hover:border-primary/20 transition-colors">
+<span class="material-icons-outlined text-xl">visibility</span>
+</div>
+<div>
+<h4 class="text-lg font-medium text-white/90">Reflection</h4>
+<p class="text-xs text-white/40 uppercase tracking-wider group-hover:text-primary/60 transition-colors">Moon void of course</p>
+</div>
+</div>
+<span class="text-3xl font-thin text-white/10">07</span>
+</div>
+<p class="text-white/60 font-light leading-relaxed text-sm border-l-2 border-white/10 pl-4 mb-3">
+                                    Still waters ran deep yesterday. It was a time for pausing and reconsidering your next strategic move rather than acting on impulse.
+                                </p>
+</div>
+</div>
+</div>
+<!-- Card 3: OLDER (Faded) -->
+<div class="relative grid md:grid-cols-[20%_1fr] gap-8 group opacity-60 hover:opacity-100 transition-opacity">
+<!-- Date Marker -->
+<div class="hidden md:flex flex-col items-end justify-start pt-6 pr-8 text-right relative">
+<div class="absolute right-[-3px] top-8 w-1.5 h-1.5 bg-white/30 rounded-full z-20"></div>
+<span class="text-lg font-light text-white/60">Oct 22</span>
+</div>
+<!-- Mobile Date Marker -->
+<div class="md:hidden absolute left-[-32px] top-8 w-2 h-2 bg-white/30 rounded-full z-20 border-2 border-void-dark"></div>
+<!-- Card Content -->
+<div class="relative transform transition-all duration-500 hover:-translate-y-1">
+<div class="relative bg-glass-gradient backdrop-blur-sm border border-white/5 rounded-lg p-6 shadow-lg group-hover:border-primary/20 group-hover:bg-white/5 transition-all">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-white/5 rounded-full text-white/50 group-hover:text-primary transition-colors">
+<span class="material-icons-outlined text-xl">bolt</span>
+</div>
+<div>
+<h4 class="text-lg font-medium text-white/80">Catalyst</h4>
+<p class="text-xs text-white/30 uppercase tracking-wider">Uranus Square</p>
+</div>
+</div>
+<span class="text-3xl font-thin text-white/10">06</span>
+</div>
+<p class="text-white/50 font-light leading-relaxed text-sm pl-1 line-clamp-2">
+                                    Unexpected events may have shaken your routine. Chaos precedes creation.
+                                </p>
+</div>
+</div>
+</div>
+<!-- Card 4: OLDER (Faded more) -->
+<div class="relative grid md:grid-cols-[20%_1fr] gap-8 group opacity-40 hover:opacity-100 transition-opacity">
+<!-- Date Marker -->
+<div class="hidden md:flex flex-col items-end justify-start pt-6 pr-8 text-right relative">
+<div class="absolute right-[-3px] top-8 w-1.5 h-1.5 bg-white/20 rounded-full z-20"></div>
+<span class="text-lg font-light text-white/50">Oct 21</span>
+</div>
+<!-- Mobile Date Marker -->
+<div class="md:hidden absolute left-[-32px] top-8 w-2 h-2 bg-white/20 rounded-full z-20 border-2 border-void-dark"></div>
+<!-- Card Content -->
+<div class="relative transform transition-all duration-500 hover:-translate-y-1">
+<div class="relative bg-glass-gradient backdrop-blur-sm border border-white/5 rounded-lg p-6 shadow-lg group-hover:border-primary/20 group-hover:bg-white/5 transition-all">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-white/5 rounded-full text-white/40 group-hover:text-primary transition-colors">
+<span class="material-icons-outlined text-xl">favorite_border</span>
+</div>
+<div>
+<h4 class="text-lg font-medium text-white/70">Harmony</h4>
+<p class="text-xs text-white/20 uppercase tracking-wider">Venus Trine</p>
+</div>
+</div>
+<span class="text-3xl font-thin text-white/5">05</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Fade out at bottom -->
+<div class="h-32 bg-gradient-to-t from-nebula-dark to-transparent relative z-10 pointer-events-none"></div>
+</div>
+</div>
+<div class="flex justify-center mt-8">
+<button class="text-xs uppercase tracking-[0.2em] text-white/30 hover:text-primary transition-colors pb-1 border-b border-transparent hover:border-primary">
+                    Load Archaic Records
+                </button>
+</div>
+</section>
+</main>
+</body></html>

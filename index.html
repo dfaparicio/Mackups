@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Navegación - Cosmic Guidance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body { background-color: #0f0c08; color: white; font-family: sans-serif; }
+        .connector { border-left: 2px dashed #f4af25; height: 30px; margin-left: 20px; }
+        a { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="p-10 max-w-4xl mx-auto">
+    <header class="mb-10 text-center border-b border-white/10 pb-8">
+        <h1 class="text-4xl text-[#f4af25] font-bold mb-2">Mapa del Proyecto</h1>
+        <p class="text-gray-400">Flujo completo de Usuario (De público a cliente)</p>
+    </header>
+
+    <div class="space-y-0">
+
+        <div class="flex items-center gap-4 group">
+            <div class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-bold border-2 border-[#f4af25]">0</div>
+            <a href="home_publico.html" class="flex-1 p-4 bg-gradient-to-r from-[#f4af25]/20 to-transparent border border-[#f4af25]/50 rounded-lg hover:border-[#f4af25] flex justify-between items-center">
+                <div>
+                    <h3 class="font-bold text-lg text-[#f4af25]">Landing Page (Inicio Público)</h3>
+                    <p class="text-sm text-gray-400">Página de ventas y atracción. El usuario decide entrar.</p>
+                </div>
+                <span class="material-icons text-[#f4af25]">public</span>
+            </a>
+        </div>
+        <div class="connector"></div>
+        
+        <div class="flex items-start gap-4 group">
+            <div class="w-10 h-10 rounded-full bg-[#f4af25] text-black flex items-center justify-center font-bold mt-2">1</div>
+            
+            <div class="flex-1 space-y-3">
+                <div class="flex gap-3">
+                    <a href="login.html" class="flex-1 p-4 bg-white/5 border border-white/10 rounded-lg hover:border-[#f4af25] hover:bg-white/10 flex justify-between items-center group/item">
+                        <div>
+                            <h3 class="font-bold text-lg group-hover/item:text-[#f4af25]">Login</h3>
+                            <p class="text-sm text-gray-500">Usuarios existentes.</p>
+                        </div>
+                        <span class="material-icons text-gray-500 group-hover/item:text-[#f4af25]">login</span>
+                    </a>
+
+                    <a href="register.html" class="flex-1 p-4 bg-white/5 border border-white/10 rounded-lg hover:border-[#f4af25] hover:bg-white/10 flex justify-between items-center group/item">
+                        <div>
+                            <h3 class="font-bold text-lg group-hover/item:text-[#f4af25]">Registro</h3>
+                            <p class="text-sm text-gray-500">Usuarios nuevos.</p>
+                        </div>
+                        <span class="material-icons text-gray-500 group-hover/item:text-[#f4af25]">person_add</span>
+                    </a>
+                </div>
+
+                <a href="forgot_password.html" class="block p-3 border border-white/5 border-dashed rounded-lg text-sm text-gray-400 hover:text-white hover:border-[#f4af25]/50 flex items-center justify-center gap-2 transition-colors">
+                    <span class="material-icons text-sm">lock_reset</span>
+                    Vista: Recuperar Contraseña (Simulación de correo)
+                </a>
+            </div>
+        </div>
+        <div class="connector"></div>
+
+        <div class="flex items-center gap-4 group">
+            <div class="w-10 h-10 rounded-full bg-gray-800 border border-[#f4af25] text-[#f4af25] flex items-center justify-center font-bold">2</div>
+            <a href="dashboard.html" class="flex-1 p-4 bg-white/5 border border-white/10 rounded-lg hover:border-[#f4af25] hover:bg-white/10 flex justify-between items-center">
+                <div>
+                    <h3 class="font-bold text-lg">Dashboard Principal</h3>
+                    <p class="text-sm text-gray-500">Perfil del usuario (Estado inicial: Inactivo).</p>
+                </div>
+                <span class="material-icons text-[#f4af25]">dashboard</span>
+            </a>
+        </div>
+        <div class="connector"></div>
+
+        <div class="flex items-center gap-4 group">
+            <div class="w-10 h-10 rounded-full bg-gray-800 border border-[#f4af25] text-[#f4af25] flex items-center justify-center font-bold">3</div>
+            <a href="planes.html" class="flex-1 p-4 bg-white/5 border border-white/10 rounded-lg hover:border-[#f4af25] hover:bg-white/10 flex justify-between items-center">
+                <div>
+                    <h3 class="font-bold text-lg">Selección de Planes</h3>
+                    <p class="text-sm text-gray-500">El usuario elige el plan Premium.</p>
+                </div>
+                <span class="material-icons text-[#f4af25]">shopping_cart</span>
+            </a>
+        </div>
+        <div class="connector"></div>
+
+        <div class="flex items-center gap-4 group">
+            <div class="w-10 h-10 rounded-full bg-gray-800 border border-[#f4af25] text-[#f4af25] flex items-center justify-center font-bold">4</div>
+            <a href="pago_final.html" class="flex-1 p-4 bg-white/5 border border-white/10 rounded-lg hover:border-[#f4af25] hover:bg-white/10 flex justify-between items-center">
+                <div>
+                    <h3 class="font-bold text-lg">Pasarela de Pago</h3>
+                    <p class="text-sm text-gray-500">Simulación de tarjeta de crédito.</p>
+                </div>
+                <span class="material-icons text-[#f4af25]">credit_card</span>
+            </a>
+        </div>
+        <div class="connector"></div>
+
+        <div class="flex items-center gap-4 group">
+            <div class="w-10 h-10 rounded-full bg-gray-800 border border-[#f4af25] text-[#f4af25] flex items-center justify-center font-bold">5</div>
+            <a href="historial_pagos.html" class="flex-1 p-4 bg-white/5 border border-white/10 rounded-lg hover:border-[#f4af25] hover:bg-white/10 flex justify-between items-center">
+                <div>
+                    <h3 class="font-bold text-lg">Confirmación y Recibos</h3>
+                    <p class="text-sm text-gray-500">Pago exitoso -> Regreso al Dashboard.</p>
+                </div>
+                <span class="material-icons text-[#f4af25]">receipt</span>
+            </a>
+        </div>
+        
+        <div class="mt-8 ml-10 p-4 border-l-2 border-dashed border-gray-700">
+            <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4">Módulos de Lectura (Post-Pago)</h4>
+            
+            <a href="lectura_principal.html" class="block mb-3 text-[#f4af25] hover:text-white flex items-center gap-2 transition-colors">
+                <span class="material-icons text-sm">auto_awesome</span> Lectura Principal
+            </a>
+            <a href="lectura_diaria.html" class="block mb-3 text-[#f4af25] hover:text-white flex items-center gap-2 transition-colors">
+                <span class="material-icons text-sm">today</span> Lectura Diaria
+            </a>
+            <a href="historial_lecturas.html" class="block text-[#f4af25] hover:text-white flex items-center gap-2 transition-colors">
+                <span class="material-icons text-sm">history_edu</span> Historial de Lecturas
+            </a>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-white/10">
+            <h4 class="text-sm uppercase tracking-widest text-gray-500 mb-4">Vista Administrativa</h4>
+            <a href="admin.html" class="inline-flex items-center gap-2 px-4 py-2 bg-red-900/10 text-red-400 border border-red-900/30 rounded hover:bg-red-900/30 transition-colors">
+                <span class="material-icons text-sm">admin_panel_settings</span> Panel de Finanzas
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cosmic Payment History</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                    "primary": "#f4af25",
+                    "background-light": "#f8f7f5",
+                    "background-dark": "#221c10",
+                },
+                fontFamily: {
+                    "display": ["Newsreader", "serif"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                backgroundImage: {
+                    'cosmic-gradient': 'radial-gradient(circle at 50% 0%, #4c1d95 0%, #1e1b4b 40%, #111 80%)',
+                }
+            },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(30, 27, 75, 0.5); 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(244, 175, 37, 0.3); 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(244, 175, 37, 0.6); 
+        }
+
+        /* Subtle Sacred Geometry Pattern Overlay */
+        .sacred-geo-bg {
+            background-color: transparent;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f4af25' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white min-h-screen relative overflow-hidden flex flex-col">
+<!-- Deep Space Background Layer -->
+<div class="fixed inset-0 z-0 bg-cosmic-gradient pointer-events-none"></div>
+<!-- Sacred Geometry Pattern Layer -->
+<div class="fixed inset-0 z-0 sacred-geo-bg pointer-events-none"></div>
+<!-- Nebula Glow Accents -->
+<div class="fixed top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-indigo-600/20 rounded-full blur-[120px] mix-blend-screen pointer-events-none"></div>
+<div class="fixed bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-violet-800/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none"></div>
+<!-- Navigation Bar -->
+<nav class="relative z-10 w-full px-8 py-6 flex justify-between items-center border-b border-white/5 backdrop-blur-sm">
+<div class="flex items-center gap-3">
+<span class="material-icons text-primary text-3xl">auto_awesome</span>
+<span class="text-2xl font-bold tracking-wide text-white">AETHERIA</span>
+</div>
+<div class="hidden md:flex items-center gap-8 text-white/70">
+<a class="hover:text-primary transition-colors" href="#">Readings</a>
+<a class="hover:text-primary transition-colors" href="#">Charts</a>
+<a class="text-white border-b border-primary" href="#">Account</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" data-alt="User avatar portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG_--SS3x_x13HBcAmpxJL-XFGB2XYq-G3iFuvk-1Uj-iQr-52TPZFHqmWm8FPecCplo43p-6OWeC3fUYVYFVBdiHSt6tfrtq_-u6qKPK8pPfwFwhihSUA_IEvmbgRgZUkIc6vIULMsoMnfuqNl6qc6AiamI2Hs-esEzHJzNK6TshQg8JA-jHJe_cFs0r6NSukZUrBYRORAGgUt5t1ucU--fJRtvgfDEtMlLD-oZgUhYSlQKV8-_VwPc7om_wpwc5ETQ5Ok3o6su4"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="relative z-10 flex-grow flex items-center justify-center p-4 md:p-8 lg:p-12">
+<!-- Glassmorphic Panel -->
+<div class="w-full max-w-6xl bg-black/40 backdrop-blur-xl border border-primary/30 rounded-xl shadow-[0_0_50px_-12px_rgba(244,175,37,0.15)] overflow-hidden flex flex-col">
+<!-- Header Section inside Panel -->
+<div class="px-8 py-8 md:px-12 md:py-10 border-b border-primary/20 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 bg-gradient-to-r from-primary/5 to-transparent">
+<div>
+<h5 class="text-primary uppercase tracking-[0.2em] text-sm font-semibold mb-2 flex items-center gap-2">
+<span class="w-8 h-[1px] bg-primary"></span>
+                        Billing History
+                    </h5>
+<h1 class="text-4xl md:text-5xl font-display italic font-light text-white leading-tight">
+                        Your <span class="text-primary font-normal not-italic">Cosmic</span> Transactions
+                    </h1>
+<p class="mt-3 text-white/60 text-lg max-w-md font-light">
+                        A record of your energy exchanges and premium guidance unlocked.
+                    </p>
+</div>
+<button class="group relative px-6 py-3 rounded-lg overflow-hidden bg-primary/10 border border-primary/50 hover:border-primary transition-all duration-300 shadow-[0_0_20px_-5px_rgba(244,175,37,0.3)] hover:shadow-[0_0_30px_-5px_rgba(244,175,37,0.5)]">
+<div class="absolute inset-0 w-full h-full bg-primary/10 group-hover:bg-primary/20 transition-all duration-300"></div>
+<span class="relative flex items-center gap-2 text-primary font-medium tracking-wide">
+<span class="material-icons text-sm">settings</span>
+                        Manage Subscription
+                    </span>
+</button>
+</div>
+<!-- Table Section -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-primary/20 bg-white/5 text-white/50 text-sm uppercase tracking-wider font-light">
+<th class="px-8 py-5 md:pl-12 font-medium">Date Initiated</th>
+<th class="px-8 py-5 font-medium">Cosmic Plan / Service</th>
+<th class="px-8 py-5 font-medium">Energy Exchange</th>
+<th class="px-8 py-5 font-medium">Alignment Status</th>
+<th class="px-8 py-5 md:pr-12 text-right font-medium">Invoice</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/10 text-white/90">
+<!-- Row 1 -->
+<tr class="group hover:bg-primary/5 transition-colors duration-300">
+<td class="px-8 py-6 md:pl-12 font-light text-lg whitespace-nowrap">
+                                Oct 24, 2023
+                            </td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-indigo-900/50 border border-indigo-500/30 flex items-center justify-center text-indigo-300">
+<span class="material-icons text-lg">wb_sunny</span>
+</div>
+<div>
+<div class="font-normal text-lg">Grand Solar Cycle Report</div>
+<div class="text-sm text-white/40">ID: #CSM-8821-X</div>
+</div>
+</div>
+</td>
+<td class="px-8 py-6 font-display italic text-xl text-primary">
+                                $44.44
+                            </td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-900/40 text-emerald-300 border border-emerald-500/30 shadow-[0_0_10px_-2px_rgba(16,185,129,0.3)]">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    Paid
+                                </span>
+</td>
+<td class="px-8 py-6 md:pr-12 text-right">
+<button aria-label="Download Invoice" class="text-white/40 hover:text-primary transition-colors p-2 rounded-full hover:bg-primary/10">
+<span class="material-icons">download</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-primary/5 transition-colors duration-300">
+<td class="px-8 py-6 md:pl-12 font-light text-lg whitespace-nowrap">
+                                Sep 24, 2023
+                            </td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-violet-900/50 border border-violet-500/30 flex items-center justify-center text-violet-300">
+<span class="material-icons text-lg">nights_stay</span>
+</div>
+<div>
+<div class="font-normal text-lg">Monthly Astral Insight</div>
+<div class="text-sm text-white/40">ID: #CSM-7742-A</div>
+</div>
+</div>
+</td>
+<td class="px-8 py-6 font-display italic text-xl text-primary">
+                                $11.11
+                            </td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-900/40 text-emerald-300 border border-emerald-500/30 shadow-[0_0_10px_-2px_rgba(16,185,129,0.3)]">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    Paid
+                                </span>
+</td>
+<td class="px-8 py-6 md:pr-12 text-right">
+<button aria-label="Download Invoice" class="text-white/40 hover:text-primary transition-colors p-2 rounded-full hover:bg-primary/10">
+<span class="material-icons">download</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-primary/5 transition-colors duration-300">
+<td class="px-8 py-6 md:pl-12 font-light text-lg whitespace-nowrap">
+                                Aug 24, 2023
+                            </td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-amber-900/30 border border-primary/30 flex items-center justify-center text-primary">
+<span class="material-icons text-lg">workspace_premium</span>
+</div>
+<div>
+<div class="font-normal text-lg">Numerology Masterclass</div>
+<div class="text-sm text-white/40">ID: #CSM-3321-M</div>
+</div>
+</div>
+</td>
+<td class="px-8 py-6 font-display italic text-xl text-primary">
+                                $88.88
+                            </td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-900/40 text-emerald-300 border border-emerald-500/30 shadow-[0_0_10px_-2px_rgba(16,185,129,0.3)]">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    Paid
+                                </span>
+</td>
+<td class="px-8 py-6 md:pr-12 text-right">
+<button aria-label="Download Invoice" class="text-white/40 hover:text-primary transition-colors p-2 rounded-full hover:bg-primary/10">
+<span class="material-icons">download</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-primary/5 transition-colors duration-300">
+<td class="px-8 py-6 md:pl-12 font-light text-lg whitespace-nowrap">
+                                July 12, 2023
+                            </td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-slate-800/50 border border-slate-600/30 flex items-center justify-center text-slate-400">
+<span class="material-icons text-lg">history_edu</span>
+</div>
+<div>
+<div class="font-normal text-lg">Karmic Debt Analysis</div>
+<div class="text-sm text-white/40">ID: #CSM-1102-K</div>
+</div>
+</div>
+</td>
+<td class="px-8 py-6 font-display italic text-xl text-white/50">
+                                $22.22
+                            </td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-900/20 text-amber-500 border border-amber-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                    Refunded
+                                </span>
+</td>
+<td class="px-8 py-6 md:pr-12 text-right">
+<button aria-label="Download Invoice" class="text-white/20 hover:text-primary transition-colors p-2 rounded-full hover:bg-primary/10">
+<span class="material-icons">receipt_long</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer Pagination/Summary -->
+<div class="px-8 py-6 border-t border-primary/20 bg-black/20 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-white/40">
+<div class="font-light">
+                    Showing <span class="text-white">1-4</span> of <span class="text-white">12</span> transactions
+                </div>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-white/10 hover:border-primary/50 hover:text-primary transition-colors disabled:opacity-30" disabled="">
+<span class="material-icons text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-white/10 hover:border-primary/50 hover:text-primary transition-colors">
+<span class="material-icons text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Decor Elements -->
+<div class="fixed bottom-8 left-8 hidden lg:block opacity-60 pointer-events-none">
+<div class="text-primary/30 text-[10rem] leading-none select-none mix-blend-overlay font-display italic">
+            ∞
+        </div>
+</div>
+</body></html>

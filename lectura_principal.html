@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Principal Soul Reading Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&amp;family=Cinzel:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f4af25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221c10",
+                        "cosmic-purple": "#1a0b2e",
+                        "deep-indigo": "#110b29",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "serif-display": ["Cinzel", "serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                    backgroundImage: {
+                        'cosmic-gradient': 'radial-gradient(circle at center, #2e1a47 0%, #110b29 50%, #000000 100%)',
+                    },
+                    boxShadow: {
+                        'glow': '0 0 40px -10px rgba(244, 175, 37, 0.3)',
+                        'gold-border': '0 0 0 1px rgba(244, 175, 37, 0.2), 0 0 20px rgba(244, 175, 37, 0.1)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom styles for animations and specific effects */
+        .glass-panel {
+            background: rgba(18, 18, 23, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        .prismatic-border {
+            position: relative;
+        }
+        
+        .prismatic-border::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(244, 175, 37, 0.1), rgba(138, 43, 226, 0.2), rgba(244, 175, 37, 0.1));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(to bottom, #fff8e1, #f4af25);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .astrolabe-ring {
+            border: 1px solid rgba(244, 175, 37, 0.3);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .animate-spin-slow {
+            animation: spin 30s linear infinite;
+        }
+        
+        .animate-spin-reverse-slow {
+            animation: spin-reverse 45s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        @keyframes spin-reverse {
+            from { transform: translate(-50%, -50%) rotate(360deg); }
+            to { transform: translate(-50%, -50%) rotate(0deg); }
+        }
+
+        .spotlight {
+            background: radial-gradient(circle at top center, rgba(244, 175, 37, 0.15), transparent 70%);
+        }
+        
+        /* Sacred Geometry Pattern Overlay */
+        .geometry-bg {
+            background-image: 
+                linear-gradient(rgba(17, 11, 41, 0.9), rgba(17, 11, 41, 0.8)),
+                repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(244, 175, 37, 0.03) 20px),
+                repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(244, 175, 37, 0.03) 20px);
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-white font-display min-h-screen overflow-x-hidden">
+<!-- Background Layer -->
+<div class="fixed inset-0 z-0">
+<!-- Deep Space Image -->
+<img alt="Deep space nebula background with violet and indigo hues" class="w-full h-full object-cover opacity-60" data-alt="Deep space nebula background with violet and indigo hues" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8847mN3sWQrVofgja50o8rIQN_J4hGawOHPw6IBW9tn-6fLkxdbe6hEzQGxVMSJUMaPnfGGyNfZr7SrpF3mxE3YqcCG61hSqJRB-F09zUMwMtQecGwSmWBQMovcuv7tQ1BQJI5tKShnwGhEbbSglomu3iXw_bBlWs97otSquhO7suAd8MhZ-bOB3i5T4Kj_ZlHEddMMStJvA9iu59qb00b0n1DItknBJCL-rodZBWzN39i508TUkMHjS9e7UkOz_ZJzyz8R-2Wpk"/>
+<!-- Sacred Geometry Overlay -->
+<div class="absolute inset-0 geometry-bg"></div>
+<!-- Ambient Vignette -->
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-background-dark/30 to-background-dark"></div>
+</div>
+<!-- Navigation -->
+<nav class="relative z-50 w-full px-8 py-6 flex justify-between items-center bg-transparent">
+<div class="flex items-center gap-3">
+<span class="material-icons text-primary text-3xl">auto_awesome</span>
+<span class="font-serif-display font-bold text-xl tracking-widest text-white/90">NUMERIS</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-white/70 hover:text-primary transition-colors text-sm uppercase tracking-wider font-medium">Dashboard</button>
+<button class="text-white/70 hover:text-primary transition-colors text-sm uppercase tracking-wider font-medium">Readings</button>
+<div class="w-10 h-10 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center overflow-hidden">
+<img alt="User profile avatar" class="w-full h-full object-cover opacity-80" data-alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv4UXthCenmXoCaZnbAJYsnhyJ7vOl0HdafdMMrzwD6q1i9zwDWvkQK9jTh9Sk6dcuMs1gVELNFCSUKpyMLFUkHriAlR4LrjwWlKErSKd2CSX2XxpZT94Ie9Bz5b4ACyvME4_xIINiFKRODTHjITPoXrUH_90OAo-yBKzupzDnO-5K8Wz0SYg0ApjphBUrSGJwwzT42SRz7TObbvSN1ZJJzYJ9g3p7P62g79xH8hLjV2JRB3WD4cj4PeSKIuHEDWWn7qM9BpWfPBE"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="relative z-10 container mx-auto px-4 py-8 lg:py-12 min-h-[85vh] flex flex-col items-center justify-center">
+<!-- Glass Panel -->
+<div class="w-full max-w-5xl glass-panel prismatic-border rounded-xl p-8 lg:p-12 relative overflow-hidden">
+<!-- Spotlight Effect -->
+<div class="absolute inset-0 spotlight pointer-events-none"></div>
+<!-- Header Section -->
+<header class="text-center mb-12 relative z-10">
+<h1 class="font-serif-display text-4xl lg:text-5xl font-bold text-gold-gradient mb-2 tracking-wide drop-shadow-lg">
+                    Your Cosmic Blueprint
+                </h1>
+<p class="text-white/50 uppercase tracking-[0.2em] text-sm font-medium">Principal Soul Reading • Oct 24, 2023</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
+<!-- Left Column: Reading Part 1 -->
+<div class="lg:col-span-4 space-y-8 text-white/80">
+<div>
+<h3 class="text-primary text-sm font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
+<span class="w-8 h-[1px] bg-primary/50"></span> Core Essence
+                        </h3>
+<p class="font-light leading-relaxed text-lg">
+                            At your core, you are a seeker of truth. The vibration of the 7 resonates with deep introspection and a hunger for knowledge that transcends the material plane. You are not satisfied with surface-level explanations; your soul demands to understand the 'why' behind existence.
+                        </p>
+</div>
+<div>
+<h3 class="text-primary text-sm font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
+<span class="w-8 h-[1px] bg-primary/50"></span> Soul Urge
+                        </h3>
+<p class="font-light leading-relaxed text-sm text-white/60">
+                            Your inner desire is for solitude and contemplation. While others seek the spotlight, you find your power in the quiet moments between thoughts.
+                        </p>
+</div>
+</div>
+<!-- Center: Hero Number Animation -->
+<div class="lg:col-span-4 flex flex-col items-center justify-center h-full min-h-[300px] relative">
+<!-- Astrolabe Rings -->
+<div class="w-64 h-64 relative">
+<!-- Outer Ring -->
+<div class="w-full h-full astrolabe-ring border-primary/20 animate-spin-slow"></div>
+<!-- Middle Ring -->
+<div class="w-[80%] h-[80%] astrolabe-ring border-primary/40 animate-spin-reverse-slow"></div>
+<!-- Inner Ring -->
+<div class="w-[60%] h-[60%] astrolabe-ring border-primary/60 animate-spin-slow" style="border-style: dashed;"></div>
+<!-- The Number -->
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="font-serif-display text-9xl text-primary drop-shadow-[0_0_25px_rgba(244,175,37,0.6)] animate-pulse">7</span>
+</div>
+</div>
+<div class="mt-8 text-center">
+<span class="inline-block px-4 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest">
+                            The Mystic
+                        </span>
+</div>
+</div>
+<!-- Right Column: Reading Part 2 -->
+<div class="lg:col-span-4 space-y-8 text-white/80 lg:text-right">
+<div class="flex flex-col lg:items-end">
+<h3 class="text-primary text-sm font-bold uppercase tracking-widest mb-3 flex items-center gap-2 flex-row-reverse lg:flex-row">
+                             Life Purpose <span class="w-8 h-[1px] bg-primary/50"></span>
+</h3>
+<p class="font-light leading-relaxed text-lg">
+                            Your destiny is one of analysis and spiritual teaching. You are here to bridge the gap between science and spirituality. By mastering your own mind, you become a beacon for others lost in the chaos of emotion.
+                        </p>
+</div>
+<div class="flex flex-col lg:items-end">
+<h3 class="text-primary text-sm font-bold uppercase tracking-widest mb-3 flex items-center gap-2 flex-row-reverse lg:flex-row">
+                             Karmic Lesson <span class="w-8 h-[1px] bg-primary/50"></span>
+</h3>
+<p class="font-light leading-relaxed text-sm text-white/60">
+                            Learn to trust your intuition without needing empirical proof. Vulnerability is not weakness; it is the gateway to the connection you secretly crave.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Footer / Action Bar -->
+<div class="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
+<!-- Left Action -->
+<button class="group flex items-center gap-3 text-white/60 hover:text-white transition-all duration-300">
+<div class="w-10 h-10 rounded-full bg-white/5 group-hover:bg-primary/20 flex items-center justify-center transition-colors">
+<span class="material-icons text-sm group-hover:text-primary">share</span>
+</div>
+<span class="text-xs uppercase tracking-wider font-medium">Share Wisdom</span>
+</button>
+<!-- Center Primary Action -->
+<button class="relative group px-8 py-3 bg-primary hover:bg-yellow-500 text-background-dark font-bold rounded-lg shadow-glow transition-all duration-300 transform hover:-translate-y-1">
+<div class="absolute inset-0 bg-white/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="relative flex items-center gap-2">
+<span class="material-icons">file_download</span>
+<span>Download Certificate</span>
+</div>
+</button>
+<!-- Right Action -->
+<button class="group flex items-center gap-3 text-white/60 hover:text-white transition-all duration-300">
+<span class="text-xs uppercase tracking-wider font-medium text-right">Daily Transit</span>
+<div class="w-10 h-10 rounded-full bg-white/5 group-hover:bg-primary/20 flex items-center justify-center transition-colors">
+<span class="material-icons text-sm group-hover:text-primary">explore</span>
+</div>
+</button>
+</div>
+</div>
+</main>
+</body></html>
