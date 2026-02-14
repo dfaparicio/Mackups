@@ -3,7 +3,7 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Principal Soul Reading Dashboard</title>
+<title>Panel de Lectura del Alma Principal</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&amp;family=Cinzel:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
@@ -39,11 +39,11 @@
 <style>
         /* Custom styles for animations and specific effects */
         .glass-panel {
-            background: rgba(18, 18, 23, 0.4);
+            background: rgba(18, 18, 23, 0.5);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
         }
         
         .prismatic-border {
@@ -56,18 +56,21 @@
             inset: -1px;
             border-radius: inherit;
             padding: 1px;
-            background: linear-gradient(135deg, rgba(244, 175, 37, 0.1), rgba(138, 43, 226, 0.2), rgba(244, 175, 37, 0.1));
+            background: linear-gradient(135deg, rgba(244, 175, 37, 0.2), rgba(138, 43, 226, 0.3), rgba(244, 175, 37, 0.2));
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             pointer-events: none;
+            opacity: 0.8;
         }
 
         .text-gold-gradient {
-            background: linear-gradient(to bottom, #fff8e1, #f4af25);
+            background: linear-gradient(to bottom, #fff8e1 0%, #f4af25 60%, #b47d12 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
         }
 
         .astrolabe-ring {
@@ -127,8 +130,8 @@
 <span class="font-serif-display font-bold text-xl tracking-widest text-white/90">NUMERIS</span>
 </div>
 <div class="flex items-center gap-6">
-<button class="text-white/70 hover:text-primary transition-colors text-sm uppercase tracking-wider font-medium">Dashboard</button>
-<button class="text-white/70 hover:text-primary transition-colors text-sm uppercase tracking-wider font-medium">Readings</button>
+<button class="text-white/70 hover:text-primary transition-colors text-sm uppercase tracking-wider font-medium">Panel</button>
+<button class="text-white/70 hover:text-primary transition-colors text-sm uppercase tracking-wider font-medium">Lecturas</button>
 <div class="w-10 h-10 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center overflow-hidden">
 <img alt="User profile avatar" class="w-full h-full object-cover opacity-80" data-alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv4UXthCenmXoCaZnbAJYsnhyJ7vOl0HdafdMMrzwD6q1i9zwDWvkQK9jTh9Sk6dcuMs1gVELNFCSUKpyMLFUkHriAlR4LrjwWlKErSKd2CSX2XxpZT94Ie9Bz5b4ACyvME4_xIINiFKRODTHjITPoXrUH_90OAo-yBKzupzDnO-5K8Wz0SYg0ApjphBUrSGJwwzT42SRz7TObbvSN1ZJJzYJ9g3p7P62g79xH8hLjV2JRB3WD4cj4PeSKIuHEDWWn7qM9BpWfPBE"/>
 </div>
@@ -143,27 +146,27 @@
 <!-- Header Section -->
 <header class="text-center mb-12 relative z-10">
 <h1 class="font-serif-display text-4xl lg:text-5xl font-bold text-gold-gradient mb-2 tracking-wide drop-shadow-lg">
-                    Your Cosmic Blueprint
+                    Tu Plano Cósmico
                 </h1>
-<p class="text-white/50 uppercase tracking-[0.2em] text-sm font-medium">Principal Soul Reading • Oct 24, 2023</p>
+<p class="text-white/50 uppercase tracking-[0.2em] text-sm font-medium">Lectura Principal del Alma • 24 Oct, 2023</p>
 </header>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
 <!-- Left Column: Reading Part 1 -->
 <div class="lg:col-span-4 space-y-8 text-white/80">
 <div>
-<h3 class="text-primary text-sm font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
-<span class="w-8 h-[1px] bg-primary/50"></span> Core Essence
+                        <h3 class="text-primary text-sm font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <span class="w-8 h-[1px] bg-primary/50"></span> Descripción
                         </h3>
-<p class="font-light leading-relaxed text-lg">
-                            At your core, you are a seeker of truth. The vibration of the 7 resonates with deep introspection and a hunger for knowledge that transcends the material plane. You are not satisfied with surface-level explanations; your soul demands to understand the 'why' behind existence.
+                        <p id="descripcion" class="font-light leading-relaxed text-lg">
+                            Aquí aparecerá la descripción detallada de tu Camino de Vida, revelando tu esencia y propósito fundamental en esta existencia.
                         </p>
 </div>
 <div>
-<h3 class="text-primary text-sm font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
-<span class="w-8 h-[1px] bg-primary/50"></span> Soul Urge
+                        <h3 class="text-primary text-sm font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <span class="w-8 h-[1px] bg-primary/50"></span> Talentos
                         </h3>
-<p class="font-light leading-relaxed text-sm text-white/60">
-                            Your inner desire is for solitude and contemplation. While others seek the spotlight, you find your power in the quiet moments between thoughts.
+                        <p id="talentos" class="font-light leading-relaxed text-sm text-white/60">
+                            Aquí se listarán tus talentos naturales y habilidades innatas que te ayudarán a triunfar.
                         </p>
 </div>
 </div>
@@ -177,33 +180,33 @@
 <div class="w-[80%] h-[80%] astrolabe-ring border-primary/40 animate-spin-reverse-slow"></div>
 <!-- Inner Ring -->
 <div class="w-[60%] h-[60%] astrolabe-ring border-primary/60 animate-spin-slow" style="border-style: dashed;"></div>
-<!-- The Number -->
-<div class="absolute inset-0 flex items-center justify-center">
-<span class="font-serif-display text-9xl text-primary drop-shadow-[0_0_25px_rgba(244,175,37,0.6)] animate-pulse">7</span>
-</div>
-</div>
-<div class="mt-8 text-center">
-<span class="inline-block px-4 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest">
-                            The Mystic
-                        </span>
-</div>
+                    <!-- The Number -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span id="numeroCamino" class="font-serif-display text-9xl text-primary drop-shadow-[0_0_25px_rgba(244,175,37,0.6)] animate-pulse">#</span>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <span id="nombre" class="inline-block px-4 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest">
+                        Arquetipo
+                    </span>
+                </div>
 </div>
 <!-- Right Column: Reading Part 2 -->
 <div class="lg:col-span-4 space-y-8 text-white/80 lg:text-right">
 <div class="flex flex-col lg:items-end">
-<h3 class="text-primary text-sm font-bold uppercase tracking-widest mb-3 flex items-center gap-2 flex-row-reverse lg:flex-row">
-                             Life Purpose <span class="w-8 h-[1px] bg-primary/50"></span>
-</h3>
-<p class="font-light leading-relaxed text-lg">
-                            Your destiny is one of analysis and spiritual teaching. You are here to bridge the gap between science and spirituality. By mastering your own mind, you become a beacon for others lost in the chaos of emotion.
+                        <h3 class="text-primary text-sm font-bold uppercase tracking-widest mb-3 flex items-center gap-2 flex-row-reverse lg:flex-row">
+                             Mensaje Espiritual <span class="w-8 h-[1px] bg-primary/50"></span>
+                        </h3>
+                        <p id="mensajeEspiritual" class="font-light leading-relaxed text-lg">
+                            Un mensaje profundo sobre tu misión espiritual y cómo conectar con el universo.
                         </p>
 </div>
 <div class="flex flex-col lg:items-end">
-<h3 class="text-primary text-sm font-bold uppercase tracking-widest mb-3 flex items-center gap-2 flex-row-reverse lg:flex-row">
-                             Karmic Lesson <span class="w-8 h-[1px] bg-primary/50"></span>
-</h3>
-<p class="font-light leading-relaxed text-sm text-white/60">
-                            Learn to trust your intuition without needing empirical proof. Vulnerability is not weakness; it is the gateway to the connection you secretly crave.
+                        <h3 class="text-primary text-sm font-bold uppercase tracking-widest mb-3 flex items-center gap-2 flex-row-reverse lg:flex-row">
+                             Desafíos <span class="w-8 h-[1px] bg-primary/50"></span>
+                        </h3>
+                        <p id="desafios" class="font-light leading-relaxed text-sm text-white/60">
+                            Los obstáculos que debes superar para crecer y evolucionar en este camino.
                         </p>
 </div>
 </div>
@@ -215,19 +218,19 @@
 <div class="w-10 h-10 rounded-full bg-white/5 group-hover:bg-primary/20 flex items-center justify-center transition-colors">
 <span class="material-icons text-sm group-hover:text-primary">share</span>
 </div>
-<span class="text-xs uppercase tracking-wider font-medium">Share Wisdom</span>
+<span class="text-xs uppercase tracking-wider font-medium">Compartir Sabiduría</span>
 </button>
 <!-- Center Primary Action -->
 <button class="relative group px-8 py-3 bg-primary hover:bg-yellow-500 text-background-dark font-bold rounded-lg shadow-glow transition-all duration-300 transform hover:-translate-y-1">
 <div class="absolute inset-0 bg-white/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity"></div>
 <div class="relative flex items-center gap-2">
 <span class="material-icons">file_download</span>
-<span>Download Certificate</span>
+<span>Descargar Certificado</span>
 </div>
 </button>
 <!-- Right Action -->
 <button class="group flex items-center gap-3 text-white/60 hover:text-white transition-all duration-300">
-<span class="text-xs uppercase tracking-wider font-medium text-right">Daily Transit</span>
+<span class="text-xs uppercase tracking-wider font-medium text-right">Tránsito Diario</span>
 <div class="w-10 h-10 rounded-full bg-white/5 group-hover:bg-primary/20 flex items-center justify-center transition-colors">
 <span class="material-icons text-sm group-hover:text-primary">explore</span>
 </div>

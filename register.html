@@ -115,42 +115,56 @@
 <p class="text-gray-400 text-xs font-medium tracking-widest uppercase">Join the Cosmos</p>
 </div>
 <form class="space-y-4">
-<div class="space-y-2 group">
-<label class="block text-[10px] uppercase tracking-widest text-primary font-bold ml-1" for="fullname">Full Name</label>
-<div class="relative">
-<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500 group-focus-within:text-primary transition-colors">
-<span class="material-symbols-outlined text-xl">person</span>
-</span>
-<input class="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-primary/20 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300" id="fullname" name="fullname" placeholder="Orion Stardust" type="text"/>
-</div>
-</div>
-<div class="space-y-2 group">
-<label class="block text-[10px] uppercase tracking-widest text-primary font-bold ml-1" for="dob">Date of Birth</label>
-<div class="relative">
-<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500 group-focus-within:text-primary transition-colors">
-<span class="material-symbols-outlined text-xl">auto_fix_high</span>
-</span>
-<input class="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-primary/20 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 appearance-none" id="dob" name="dob" type="date"/>
-</div>
-</div>
-<div class="space-y-2 group">
-<label class="block text-[10px] uppercase tracking-widest text-primary font-bold ml-1" for="email">Email Address</label>
-<div class="relative">
-<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500 group-focus-within:text-primary transition-colors">
-<span class="material-symbols-outlined text-xl">alternate_email</span>
-</span>
-<input class="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-primary/20 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300" id="email" name="email" placeholder="seeker@cosmos.com" type="email"/>
-</div>
-</div>
-<div class="space-y-2 group">
-<label class="block text-[10px] uppercase tracking-widest text-primary font-bold ml-1" for="password">Password</label>
-<div class="relative">
-<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500 group-focus-within:text-primary transition-colors">
-<span class="material-symbols-outlined text-xl">lock_open</span>
-</span>
-<input class="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-primary/20 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300" id="password" name="password" placeholder="••••••••" type="password"/>
-</div>
-</div>
+                        <div class="space-y-2 group">
+                            <label for="nombre" class="block text-[10px] uppercase tracking-widest text-primary font-bold ml-1">Full Name</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500 group-focus-within:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-xl">person</span>
+                                </span>
+                                <input type="text" name="nombre" id="nombre" class="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-primary/20 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300" placeholder="Orion Stardust">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                             <div class="space-y-2 group">
+                                <label for="edad" class="block text-[10px] uppercase tracking-widest text-primary font-bold ml-1">Age</label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500 group-focus-within:text-primary transition-colors">
+                                        <span class="material-symbols-outlined text-xl">123</span>
+                                    </span>
+                                    <input type="number" name="edad" id="edad" class="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-primary/20 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300" placeholder="25">
+                                </div>
+                            </div>
+                            <div class="space-y-2 group">
+                                <label for="fechanacimiento" class="block text-[10px] uppercase tracking-widest text-primary font-bold ml-1">Date of Birth</label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500 group-focus-within:text-primary transition-colors">
+                                        <span class="material-symbols-outlined text-xl">auto_fix_high</span>
+                                    </span>
+                                    <input type="date" name="fechanacimiento" id="fechanacimiento" class="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-primary/20 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 appearance-none">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 group">
+                            <label for="email" class="block text-[10px] uppercase tracking-widest text-primary font-bold ml-1">Email Address</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500 group-focus-within:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-xl">alternate_email</span>
+                                </span>
+                                <input type="email" name="email" id="email" class="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-primary/20 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300" placeholder="seeker@cosmos.com">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 group">
+                            <label for="password" class="block text-[10px] uppercase tracking-widest text-primary font-bold ml-1">Password</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500 group-focus-within:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-xl">lock_open</span>
+                                </span>
+                                <input type="password" name="password" id="password" class="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-primary/20 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300" placeholder="••••••••">
+                            </div>
+                        </div>
 <button class="w-full py-3.5 px-4 bg-gradient-to-r from-primary via-yellow-500 to-amber-600 text-background-dark font-bold rounded-lg shadow-[0_0_20px_rgba(244,175,37,0.3)] hover:shadow-[0_0_30px_rgba(244,175,37,0.5)] hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 flex items-center justify-center gap-2 mt-6" type="button">
 <span>Create Celestial Profile</span>
 <span class="material-icons text-sm">auto_awesome</span>
